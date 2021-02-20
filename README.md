@@ -4,7 +4,7 @@
 
 
 
-This is a simple little Save/Load class I wrote for my Monogame projects. The class can save and load your data into either .json or hex string. This project is a console app. You will need to bring the Save_Load.cs file into your monogame project. The Save_Load.cs requires Newtonsoft.json, you can find it as a Nuget package.
+This is a simple little Save/Load class I wrote for my Monogame projects. The class can save and load your data into either .json or hex string. **This project is a console app. You will need to bring the Save_Load.cs file into your monogame project.** The Save_Load.cs requires Newtonsoft.json, you can find it as a Nuget package.
 
 https://www.nuget.org/packages/Newtonsoft.Json/
 
@@ -16,6 +16,8 @@ First you will need a class that you want to save. A dummy save class has been p
 Next you will need a .json file to save the data to(Save_Data_File.json) 
 
 If using Visual Studio select the .json file and, make sure to set the Build Action = Content, and Copy to Output Directory = Copy if newer in the Properties tab. 
+
+![Screenshot](saveLoad_Properties_Edited.png)
 
 And finally you will need the path to the .json file (include file name and extension)
 
@@ -43,10 +45,18 @@ To save the data simple call the Save(), and pass in the data you want saved
 saveLoad.Save(data);
 ```
 
-To load the data from file call the Load(). Load() returns a type T
+To load the data from file call the Load(). which returns a type T.
 
 ```csharp
 Save_Data loadedData = saveLoad.Load();
+```
+
+From there use `loadedData` as you see fit.
+
+```cshart
+//example
+player.Health = loadedData.health;
+player.weapon = loadedData.weaponID;
 ```
 
 
